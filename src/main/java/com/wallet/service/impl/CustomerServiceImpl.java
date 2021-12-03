@@ -11,6 +11,8 @@ import com.wallet.payload.WalletResponsePayload;
 import com.wallet.service.CustomerService;
 import com.wallet.util.JWTUtil;
 import com.wallet.util.WalletLogger;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,6 +23,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 @Service
+@AllArgsConstructor
+@NoArgsConstructor
 public class CustomerServiceImpl implements CustomerService {
 
     @Autowired

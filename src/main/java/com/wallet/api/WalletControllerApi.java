@@ -12,9 +12,9 @@ import java.util.Map;
 
 public interface WalletControllerApi {
 
-    @ApiOperation(value="Payment made to provided ID", response = WalletResponsePayload.class)
+    @ApiOperation(value="Payment made to provided ID", response = PaymentDto.class)
     @ApiResponses(value = {
-            @ApiResponse(code = 201, message = "Successfully made payment to given wallet",response = WalletResponsePayload.class),
+            @ApiResponse(code = 201, message = "Successfully made payment to given wallet",response = PaymentDto.class),
             @ApiResponse(code = 400, message = "Account balance is insufficient to make payment",response = WalletResponsePayload.class)
     })
     @PostMapping("/wallet/1.0/api/makePayment")

@@ -14,6 +14,8 @@ import com.wallet.payload.WalletResponsePayload;
 import com.wallet.service.WalletService;
 import com.wallet.util.JWTUtil;
 import com.wallet.util.WalletLogger;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +23,8 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 
 @Service
+@AllArgsConstructor
+@NoArgsConstructor
 public class WalletServiceImpl implements WalletService {
 
     @Autowired
@@ -50,6 +54,7 @@ public class WalletServiceImpl implements WalletService {
         String sentTo = paymentDto.getSentTo();
 
         Customer sender = customerDao.findById(sentBy).orElseThrow(UserIdDoesNotExistException::new);
+
         Customer receiver = customerDao.findById(sentTo).orElseThrow(UserIdDoesNotExistException::new);
 
         if(sender.getAmount()>=paymentDto.getAmount()){
